@@ -1,0 +1,22 @@
+<finite_automaton> ::= <states_section> <alphabet_section> <transitions_section> <start_state_section> <final_states_section>
+
+<states_section> ::= "states" <state_list>
+<alphabet_section> ::= "alphabet" <symbol_list>
+<transitions_section> ::= "transitions" <transition_list>
+<start_state_section> ::= "start_state" <state>
+<final_states_section> ::= "final_states" <state_list>
+
+<state_list> ::= <state> | <state> "," <state_list>
+<symbol_list> ::= <symbol> | <symbol> "," <symbol_list>
+<transition_list> ::= <transition> | <transition> "," <transition_list>
+
+<state> ::= <identifier>
+<symbol> ::= <character>
+<transition> ::= <state> "," <symbol> "," <state>
+
+<identifier> ::= <letter> | <letter> <identifier_suffix>
+<identifier_suffix> ::= <letter_or_digit> | <letter_or_digit> <identifier_suffix>
+<letter_or_digit> ::= <letter> | <digit>
+<letter> ::= "a" | "b" | ... | "z" | "A" | "B" | ... | "Z"
+<digit> ::= "0" | "1" | ... | "9"
+<character> ::= <letter> | <digit>
