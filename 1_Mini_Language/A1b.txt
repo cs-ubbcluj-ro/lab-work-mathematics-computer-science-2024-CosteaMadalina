@@ -1,0 +1,29 @@
+program ::= declist ";" compound_stmt ";"
+
+declist ::= declaration ";" declist
+declaration ::= "int" "a" ";"
+declaration ::= "int" "b" ";"
+declaration ::= "int" "min" ";"
+
+compound_stmt ::= "{"
+    stmtlist
+"}"
+
+stmtlist ::= assign_stmt ";" stmtlist | if_stmt ";" stmtlist 
+
+assign_stmt ::= "a" "=" "0" 
+assign_stmt ::= "b" "=" "0" 
+
+iostmt ::= "cin" >> "a" ";"
+iostmt ::= "cin" >> "b" ";"
+iostmt ::= "cout" << "min" << ";" 
+
+if_stmt ::= "if" "(" "a" "<" "b" ")" "min" "=" "a" ";"
+if_stmt ::= "else" "min" "=" "b" ";"
+
+
+int main() {
+    declist
+    compound_stmt
+    return 0;
+}
