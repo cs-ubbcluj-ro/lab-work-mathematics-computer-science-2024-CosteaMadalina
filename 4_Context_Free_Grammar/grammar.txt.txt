@@ -1,0 +1,24 @@
+# Context-Free Grammar for the mini-language
+
+1. program ::= declist ";" compound_stmt ";"
+2. declist ::= declaration | declaration ";" declist
+3. declaration ::= type IDENTIFIER ";"
+4. type ::= "boolean" | "int" | "char" | "string" | "double"
+5. compound_stmt ::= "{" stmt "}"
+6. stmt ::= simple_stmt | structured_stmt
+7. simple_stmt ::= assign_stmt | iostmt
+8. assign_stmt ::= IDENTIFIER "=" expression
+9. expression ::= term | expression "+" term
+10. term ::= "(" expression ")" | IDENTIFIER | constant
+11. constant ::= integer | char | string
+12. iostmt ::= "cout" "<< " expression ";" | "cin" ">>" IDENTIFIER ";"
+13. structured_stmt ::= compound_stmt | if_stmt | while_stmt
+14. if_stmt ::= "if" "(" condition ")" stmt ["else" stmt]
+15. condition ::= expression relation expression
+16. relation ::= "<" | "<=" | ">" | ">=" | "==" | "!="
+17. integer ::= digit {digit}
+18. digit ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+19. char ::= "'" letter "'"
+20. string ::= "'" {letter | digit | space} "'"
+21. letter ::= "A" | "B" | ... | "Z" | "a" | "b" | ... | "z"
+22. IDENTIFIER ::= letter {letter | digit}
